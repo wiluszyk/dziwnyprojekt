@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,8 +15,8 @@ public class UserRole extends BaseEntity {
     @Column(name = "role")
     private String role;
 
-    @OneToOne(mappedBy = "userRole")
-    private User user;
+    @OneToMany(mappedBy = "userRole", cascade=CascadeType.ALL)
+    private List<User> user;
 
 
 

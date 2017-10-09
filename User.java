@@ -17,7 +17,7 @@ public class User extends BaseEntity {
     @Column(name = "password")
     private String password;
 
-    @OneToOne
+    @ManyToOne
     private UserRole userRole;
 
     @OneToOne(mappedBy = "user")

@@ -1,12 +1,13 @@
 package com.store.dziwnyprojekt.model;
 
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Data
 @Entity
@@ -19,5 +20,11 @@ public class Category extends NameEntity {
     @OneToMany(mappedBy="category", cascade=CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

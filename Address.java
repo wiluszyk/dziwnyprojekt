@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "address")
-public class Address extends BaseEntity{
+public class Address extends NameEntity{
 
     @Column(name = "country")
     private String country;
