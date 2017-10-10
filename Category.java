@@ -1,12 +1,15 @@
 package com.store.dziwnyprojekt.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -16,10 +19,11 @@ public class Category extends NameEntity {
 
     @Column(name = "description")
     private String description;
-
-    @OneToMany(mappedBy="category", cascade=CascadeType.ALL)
-    private List<Product> products = new ArrayList<>();
-
+    
+    @OneToMany(mappedBy="category", cascade=CascadeType.ALL,orphanRemoval = true)
+    @JsonBackReference
+    private Set<Product> products = new HashSet<>();
+    
     public String getDescription() {
         return description;
     }

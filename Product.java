@@ -1,5 +1,6 @@
 package com.store.dziwnyprojekt.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Product extends NameEntity {
     private String Description;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name="category_id")
     private Category category;
 
