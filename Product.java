@@ -27,6 +27,13 @@ public class Product extends NameEntity {
     private Category category;
 
     @OneToMany(mappedBy="product", cascade=CascadeType.ALL)
-    private List<OrderDetail> orderDetails = new ArrayList<>();
+    private List<OrderDetail> orderDetails;
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
