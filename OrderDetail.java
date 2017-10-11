@@ -14,8 +14,8 @@ public class OrderDetail extends BaseEntity{
     @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "Cost")
-    private Double cost;
+    @Column(name = "price")
+    private Double price;
 
     @ManyToOne
     @JoinColumn(name="product_id")

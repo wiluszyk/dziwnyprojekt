@@ -3,24 +3,23 @@ package com.store.dziwnyprojekt.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Data
 @Entity
 @Table(name = "orders")
 public class Order extends NameEntity{
 
-        @Column(name = "date")
-        private Date dateOfOrder;
+        @Temporal(TemporalType.TIMESTAMP)
+        @Column(name = "created")
+        private Date created;
 
         @OneToMany(mappedBy="order", cascade=CascadeType.ALL)
-        private List<OrderDetail> orderDetails = new ArrayList<>();
+        private Set<OrderDetail> orderDetails = new HashSet<>();
 
         @ManyToOne
         @JoinColumn(name="account_id")
-        private Account account;
+        private User user;
 
 
 }

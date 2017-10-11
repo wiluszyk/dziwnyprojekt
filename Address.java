@@ -1,8 +1,6 @@
 package com.store.dziwnyprojekt.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -32,7 +30,7 @@ public class Address extends NameEntity{
     private String streetNumber;
 
     @OneToMany(mappedBy="address", cascade=CascadeType.ALL)
-    private List<Account> accounts = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
 
 }
